@@ -31,7 +31,7 @@
 #include "types.h"
 #include "MarlinConfig.h"
 
-#define SAVE_INFO_INTERVAL_MS 0
+#define SAVE_INFO_INTERVAL_MS 5000
 //#define SAVE_EACH_CMD_MODE
 //#define DEBUG_POWER_LOSS_RECOVERY
 
@@ -87,7 +87,7 @@ extern JobRecoveryPhase job_recovery_phase;
 #if HAS_LEVELING
   #define APPEND_CMD_COUNT 9
 #else
-  #define APPEND_CMD_COUNT 7
+  #define APPEND_CMD_COUNT 9
 #endif
 
 extern char job_recovery_commands[BUFSIZE + APPEND_CMD_COUNT][MAX_CMD_SIZE];

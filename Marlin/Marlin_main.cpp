@@ -7432,7 +7432,7 @@ inline void gcode_M17() {
    */
   inline void gcode_M23() {
     #if ENABLED(POWER_LOSS_RECOVERY)
-      card.removeJobRecoveryFile();
+     // card.removeJobRecoveryFile();
     #endif
     // Simplify3D includes the size, so zero out all spaces (#7227)
     for (char *fn = parser.string_arg; *fn; ++fn) if (*fn == ' ') *fn = '\0';
@@ -15356,7 +15356,7 @@ void loop() {
       else {
         process_next_command();
         #if ENABLED(POWER_LOSS_RECOVERY)
-          if (card.cardOK && card.sdprinting) save_job_recovery_info();
+          if (card.cardOK && card.sdprinting && job_recovery_phase != JOB_RECOVERY_YES) save_job_recovery_info();
         #endif
       }
 
